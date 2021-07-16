@@ -165,7 +165,24 @@
 				<li>no se encuentran jugadores</li>
 			{% endfor %}
 		</ol>
-
+		<h2>Soccer</h2>
+		
+		<ol>
+			{% for player in playersSoccer %}
+				<li> {{player.first_name}} {{player.last_name}}</li>
+				{% empty %}
+				<li>no se encuentran jugadores</li>
+			{% endfor %}
+		</ol>
+		<h2>Sofia Teams</h2>
+		
+		<ol>
+			{% for player in playerSof %}
+				<li> {{player.team_name}} </li>
+				{% empty %}
+				<li>no se encuentran jugadores</li>
+			{% endfor %}
+		</ol>
 
 	</body>
 </html>

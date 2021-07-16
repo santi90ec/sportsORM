@@ -32,8 +32,10 @@ def index(request):
 		"teamSoc": Team.objects.filter(league=League.objects.get(name__contains="atlantic soccer")),
 		"playersBoston": Player.objects.filter(curr_team=Team.objects.get(team_name__contains="Penguins")),
 		"playersCollBase": Player.objects.filter(curr_team=Team.objects.filter(league=2)),
-		"playersLopez": Player.objects.filter(last_name__contains="Lopez").filter(curr_team__in=Team.objects.filter(league=League.objects.get(name="American Conference of Amateur Football")))
-
+		"playersLopez": Player.objects.filter(last_name__contains="Lopez").filter(curr_team__in=Team.objects.filter(league=League.objects.get(name="American Conference of Amateur Football"))),
+		"playersSoccer": Player.objects.filter(curr_team__league__sport__contains="soccer"),
+		"playerSof": Team.objects.filter(curr_players__first_name__contains="sofia"),
+		
 
 	}
 	#print(context["playersCollBase"])
