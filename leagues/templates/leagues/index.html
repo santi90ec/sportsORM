@@ -48,6 +48,8 @@
 				<li> {{team.name}}</li>
 			{% endfor %}
 		</ol>
+		
+
 		<h1>Teams</h1>
 		<ol>
 			{% for team in teams %}
@@ -127,5 +129,43 @@
 				<li> {{player.first_name}} {{player.last_name}}</li>
 			{% endfor %}
 		</ol>
+		<h1>Second Part</h1>
+		
+		<h2>Atlantic's Soccer Conference</h2>
+		
+		<ol>
+			{% for team in teamSoc %}
+				<li> {{team.team_name}}</li>
+			{% endfor %}
+		</ol>
+		<h2>Boston Penguin's Players</h2>
+		
+		<ol>
+			{% for player in playersBoston %}
+				<li> {{player.first_name}} {{player.last_name}}</li>
+				{% empty %}
+				<li>no se encuentran jugadores</li>
+			{% endfor %}
+		</ol>
+		<h2>International Collegiate Baseball Conference Players</h2>
+		
+		<ol>
+			{% for player in playersBoston %}
+				<li> {{player.first_name}} {{player.last_name}}</li>
+				{% empty %}
+				<li>no se encuentran jugadores</li>
+			{% endfor %}
+		</ol>
+		<h2>Lopez</h2>
+		
+		<ol>
+			{% for player in playersLopez %}
+				<li> {{player.first_name}} {{player.last_name}}</li>
+				{% empty %}
+				<li>no se encuentran jugadores</li>
+			{% endfor %}
+		</ol>
+
+
 	</body>
 </html>

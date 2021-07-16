@@ -4,6 +4,10 @@ from . import team_maker
 import leagues
 
 def index(request):
+	obj=League.objects.get(name="American Conference of Amateur Football")
+	teamsL=Team.objects.filter(league=obj)
+	Lop=Player.objects.filter(curr_team__in=teamsL)
+	#Player.objects.filter(first_name__contains="Lopez").filter(curr_team=Team.objects.filter(league=))
 	context = {
 		"leagues": League.objects.all(),
 		"teams": Team.objects.all(),
@@ -24,8 +28,15 @@ def index(request):
 		"playersJ": Player.objects.filter(first_name__contains="joshua"),
 		"playersCop": Player.objects.filter(last_name__contains="cooper" ).exclude(first_name__contains="joshua"),
 		"playersAW": Player.objects.filter(first_name__contains="wyatt"),
-		"playersAL": Player.objects.filter(first_name__contains="alexander")
+		"playersAL": Player.objects.filter(first_name__contains="alexander"),
+		"teamSoc": Team.objects.filter(league=League.objects.get(name__contains="atlantic soccer")),
+		"playersBoston": Player.objects.filter(curr_team=Team.objects.get(team_name__contains="Penguins")),
+		"playersCollBase": Player.objects.filter(curr_team=Team.objects.filter(league=2)),
+		"playersLopez": Player.objects.filter(last_name__contains="Lopez").filter(curr_team__in=Team.objects.filter(league=League.objects.get(name="American Conference of Amateur Football")))
+
+
 	}
+	#print(context["playersCollBase"])
 	return render(request, "leagues/index.html", context)
 
 def make_data(request):
