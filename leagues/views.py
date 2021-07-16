@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.db.models import Count
 from .models import League, Team, Player
 from . import team_maker
 import leagues
@@ -35,8 +36,15 @@ def index(request):
 		"playersLopez": Player.objects.filter(last_name__contains="Lopez").filter(curr_team__in=Team.objects.filter(league=League.objects.get(name="American Conference of Amateur Football"))),
 		"playersSoccer": Player.objects.filter(curr_team__league__sport__contains="soccer"),
 		"playerSof": Team.objects.filter(curr_players__first_name__contains="sofia"),
-		
-
+		#"leagSof": League.objects.filter(teams__curr_players__first_name_contains="sofia"),
+		"playerFlor": Player.objects.filter(last_name__contains="Flores").exclude(curr_team__team_name="Roughriders",curr_team__location="Washington"),
+		"playerSam": Team.objects.filter(all_players__first_name = "Samuel", all_players__last_name = "Evans"),
+		"playerMan": Player.objects.filter(all_teams__team_name = "Tiger-Cats", all_teams__location = "Manitoba"),
+		"playerW": Player.objects.filter(all_teams__team_name = "Vikings", all_teams__location = "Wichita").exclude(curr_team__team_name = "Vikings", curr_team__location = "Wichita"),
+		"playerJ": Team.objects.filter(all_players__first_name = "Jacob", all_players__last_name = "Gray").exclude(team_name = "Colts", location = "Oregon"),
+		"playerJos": Player.objects.filter(first_name = "Joshua", all_teams__league__name = "Atlantic Federation of Amateur Baseball Players"),
+		"teams12": Team.objects.annotate(x = Count('all_players')).filter(x__gt=11),
+		"players12": Player.objects.annotate(x = Count('all_teams')).order_by('-x')
 	}
 	#print(context["playersCollBase"])
 	return render(request, "leagues/index.html", context)

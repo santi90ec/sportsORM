@@ -183,6 +183,87 @@
 				<li>no se encuentran jugadores</li>
 			{% endfor %}
 		</ol>
-
+		<h2>Sofia Leag</h2>
+		
+		<ol>
+			{% for player in leagSof %}
+				<li> {{player.name}} </li>
+				{% empty %}
+				<li>no se encuentran jugadores</li>
+			{% endfor %}
+		</ol>
+		<h2>todos con el apellido "Flores" que NO (actualmente) juegan para los Washington Roughriders</h2>
+		
+		<ol>
+			{% for player in playerFlor %}
+				<li> {{player.first_name}}</li>
+				{% empty %}
+				<li>no se encuentran jugadores</li>
+			{% endfor %}
+		</ol>
+		<h2>Samuel evans</h2>
+		
+		<ol>
+			{% for player in playerSam %}
+				<li> {{player.team_name}}</li>
+				{% empty %}
+				<li>no se encuentran jugadores</li>
+			{% endfor %}
+		</ol>
+		<h2>Manitoba</h2>
+		
+		<ol>
+			{% for player in playerMan %}
+				<li> {{player.first_name}} {{player.last_name}}</li>
+				{% empty %}
+				<li>no se encuentran jugadores</li>
+			{% endfor %}
+		</ol>
+		<h2>playerW</h2>
+		
+		<ol>
+			{% for player in playerW %}
+				<li> {{player.first_name}} {{player.last_name}}</li>
+				{% empty %}
+				<li>no se encuentran jugadores</li>
+			{% endfor %}
+		</ol>
+		<h2>Jacob</h2>
+		
+		<ol>
+			{% for player in playerJ %}
+				<li> {{player.team_name}} </li>
+				{% empty %}
+				<li>no se encuentran jugadores</li>
+			{% endfor %}
+		</ol>
+		<h2>playerJos</h2>
+		
+		<ol>
+			{% for player in playerJos %}
+				<li> {{player.first_name}} {{player.last_name}} </li>
+				{% empty %}
+				<li>no se encuentran jugadores</li>
+			{% endfor %}
+		</ol>
+		<h2>12 pla</h2>
+		
+		<ol>
+			{% for player in teams12 %}
+				<li> {{player.team_name}}  </li>
+				{% empty %}
+				<li>no se encuentran jugadores</li>
+			{% endfor %}
+		</ol>
+		<h2>12 pla</h2>
+		
+		<ol>
+			{% for player in players12 %}
+				<li> {{player.first_name}} {{player.last_name}}  </li>
+				{% empty %}
+				<li>no se encuentran jugadores</li>
+			{% endfor %}
+		</ol>
+		playerJos
 	</body>
 </html>
